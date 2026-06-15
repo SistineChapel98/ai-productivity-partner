@@ -14,7 +14,120 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      emails: {
+        Row: {
+          body: string
+          created_at: string
+          id: string
+          notes: string | null
+          purpose: string
+          recipient: string
+          subject: string
+          tone: string
+          user_id: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          purpose: string
+          recipient: string
+          subject: string
+          tone: string
+          user_id: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          purpose?: string
+          recipient?: string
+          subject?: string
+          tone?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      meeting_notes: {
+        Row: {
+          created_at: string
+          id: string
+          source_text: string
+          summary: Json
+          title: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          source_text: string
+          summary: Json
+          title: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          source_text?: string
+          summary?: Json
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          email: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      task_plans: {
+        Row: {
+          available_hours: number
+          created_at: string
+          id: string
+          input_tasks: string
+          schedule: Json
+          start_time: string
+          user_id: string
+        }
+        Insert: {
+          available_hours: number
+          created_at?: string
+          id?: string
+          input_tasks: string
+          schedule: Json
+          start_time?: string
+          user_id: string
+        }
+        Update: {
+          available_hours?: number
+          created_at?: string
+          id?: string
+          input_tasks?: string
+          schedule?: Json
+          start_time?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
